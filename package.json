@@ -1,0 +1,20 @@
+{
+  "name": "bankaccounts-web",
+  "version": "0.0.0",
+  "description": "Web interface for BankAccounts",
+  "homepage": "https://github.com/cloudnode-pro/BankAccounts-Web#readme",
+  "bugs": {
+    "url": "https://github.com/cloudnode-pro/BankAccounts-Web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudnode-pro/BankAccounts-Web"
+  },
+  "license": "GPL-3.0",
+  "author": "Cloudnode",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
