@@ -51,7 +51,7 @@ export default class Login extends Page {
               </div>
             </div>
           </main>
-          <footer>Copyright © 2025 Cloudnode OÜ. All rights reserved.</footer>
+          <footer class="py-6 bg-neutral-950 border-t border-neutral-800"><p class="text-center text-xs leading-5 text-neutral-400">Copyright © 2025 Cloudnode OÜ. All rights reserved.</p></footer>
         `;
     }
 
