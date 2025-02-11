@@ -18,14 +18,15 @@ export default class Login extends Page {
               </div>
             </header>
             <div class="flex grow items-center justify-center bg-neutral-950">
-              <div class="w-xl rounded-xl bg-neutral-900 p-8">
-                <h1 class="text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Sign in to your account</h1>
+              <div class="w-xl rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5">
+                <h1 class="text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Welcome back!</h1>
                 <p class="mt-10 font-medium text-neutral-400">To access your bank accounts, join a Minecraft server and run the following command.</p>
                 ${new Component<HTMLButtonElement>("button")
-                        .class("mt-4", "flex", "w-full", "cursor-pointer", "rounded-md", "bg-white/5", "px-3", "py-1.5", "text-white", "ring-1", "shadow-sm", "ring-white/10", "transition-colors", "ring-inset", "select-text", "hover:bg-white/10", "focus-visible:ring-2", "focus-visible:ring-green-500", "focus-visible:outline-none", "focus-visible:ring-inset", "sm:text-sm", "sm:leading-6")
+                        .set("id", "copy")
+                        .class("mt-10", "flex", "w-full", "cursor-pointer", "rounded-md", "bg-white/5", "px-3", "py-1.5", "text-white", "ring-1", "shadow-sm", "ring-white/10", "transition-colors", "ring-inset", "select-text", "hover:bg-white/10", "focus-visible:ring-2", "focus-visible:ring-green-500", "focus-visible:outline-none", "focus-visible:ring-inset", "sm:text-sm", "sm:leading-6")
                         .text("/bank login")
                         .on("click", async (_, btn) => {
-                            const prompt = new Component(btn.node.nextElementSibling as HTMLParagraphElement);
+                            const prompt = new Component(btn.node.nextElementSibling as HTMLElement);
                             prompt.text("Copying…");
                             await navigator.clipboard.writeText("/bank login");
                             prompt.class("hidden");
@@ -46,7 +47,7 @@ export default class Login extends Page {
                                 prompt.removeClass("hidden")
                             }, 5000)
                         })} 
-                <p class="mt-2 text-sm/6 text-neutral-500">Click to copy.</p>
+                <label for="copy" class="block mt-2 text-sm/6 text-neutral-500">Click to copy.</label>
               </div>
             </div>
           </main>
