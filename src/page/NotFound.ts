@@ -14,7 +14,7 @@ export default class NotFound extends Page {
               </div>
             </div>
           </main>
-        `
+        `;
     }
 
     public override match(): boolean {
