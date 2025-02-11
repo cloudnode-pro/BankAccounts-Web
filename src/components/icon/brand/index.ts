@@ -8,9 +8,9 @@ export default class Brand {
     private constructor() {
     }
 
-    public static readonly GitHub = new GitHub();
-    public static readonly Mastodon = new Mastodon();
-    public static readonly Matrix = new Matrix();
-    public static readonly Modrinth = new Modrinth();
-    public static readonly SpigotMC = new SpigotMC();
+    public static readonly GitHub = GitHub;
+    public static readonly Mastodon = Mastodon;
+    public static readonly Matrix = Matrix;
+    public static readonly Modrinth = Modrinth;
+    public static readonly SpigotMC = SpigotMC;
 }

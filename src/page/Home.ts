@@ -76,32 +76,32 @@ export default class Home extends Page {
                     ${this.feature(
                             "Multiple Accounts & Balances.",
                             "Manage your finances seamlessly with multiple independent bank accounts, including both personal and business accounts.",
-                            Lucide.Coins
+                            new Lucide.Coins
                     )}
                     ${this.feature(
                             "Transactions History.",
                             "Easily access a complete record of your account transactions, allowing you to review past payments, and manage your finances with confidence.",
-                            Lucide.History,
+                            new Lucide.History,
                     )}
                     ${this.feature(
                             "Payment Requests & Invoices.",
                             "Send payment requests effortlessly and keep track of their status in real time, ensuring you get paid quickly and smoothly.",
-                            Lucide.FileOutput
+                            new Lucide.FileOutput
                     )}
                     ${this.feature(
                             "Vault Integration.",
                             "Seamlessly connect with Vault to enable full compatibility with third-party plugins.",
-                            Lucide.Vault
+                            new Lucide.Vault
                     )}
                     ${this.feature(
                             "POS & Bank Cards.",
                             "Create Point of Sale (POS) locations where players can sell items effortlessly. With support for bank cards, transactions are quick, secure, and hassle-free.",
-                            Lucide.CreditCard
+                            new Lucide.CreditCard
                     )}
                     ${this.feature(
                             "Customisable Settings.",
                             "Tailor your banking experience with flexible configuration options, allowing you to adjust preferences and functionality to suit your needs.",
-                            Lucide.Settings
+                            new Lucide.Settings
                     )}
                   </dl>
                 </div>
@@ -117,23 +117,23 @@ export default class Home extends Page {
                   <div class="mt-16 flex justify-center space-x-10">
                     <a href="https://modrinth.com/plugin/bankaccounts" rel="me" target="_blank" class="text-neutral-400 rounded-full hover:text-neutral-300 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-8">
                       <span class="sr-only">Modrinth</span>
-                      ${Brand.Modrinth.class("size-6").set("ariaHidden", "true")}
+                      ${new Brand.Modrinth().class("size-6").set("ariaHidden", "true")}
                     </a>
                     <a href="https://github.com/cloudnode-pro/BankAccounts" rel="me" target="_blank" class="text-neutral-400 rounded-full hover:text-neutral-300 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-8">
                       <span class="sr-only">GitHub</span>
-                      ${Brand.GitHub.class("size-6").set("ariaHidden", "true")}
+                      ${new Brand.GitHub().class("size-6").set("ariaHidden", "true")}
                     </a>
                     <a href="https://matrix.to/#/#bankaccounts:cloudnode.pro" rel="me" target="_blank" class="text-neutral-400 rounded-full hover:text-neutral-300 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-8">
                       <span class="sr-only">Matrix</span>
-                      ${Brand.Matrix.class("size-6").set("ariaHidden", "true")}
+                      ${new Brand.Matrix().class("size-6").set("ariaHidden", "true")}
                     </a>
                     <a href="https://mastodon.social/@cloudnode" rel="me" target="_blank" class="text-neutral-400 rounded-full hover:text-neutral-300 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-8">
                       <span class="sr-only">Mastodon</span>
-                      ${Brand.Mastodon.class("size-6").set("ariaHidden", "true")}
+                      ${new Brand.Mastodon().class("size-6").set("ariaHidden", "true")}
                     </a>
                     <a href="https://www.spigotmc.org/resources/bankaccounts.112092/" rel="me" target="_blank" class="text-neutral-400 rounded-full hover:text-neutral-300 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-8">
                       <span class="sr-only">SpigotMC</span>
-                      ${Brand.SpigotMC.class("size-6").set("ariaHidden", "true")}
+                      ${new Brand.SpigotMC().class("size-6").set("ariaHidden", "true")}
                     </a>
                   </div>
                   <p class="mt-10 text-center text-xs leading-5 text-neutral-400">Copyright © 2025 Cloudnode OÜ. All rights reserved. The BankAccounts plugin is licensed under the <a class="font-semibold hover:text-neutral-100 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0</a>.</p>

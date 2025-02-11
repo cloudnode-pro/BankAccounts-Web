@@ -9,10 +9,10 @@ export default class Lucide {
     private constructor() {
     }
 
-    public static readonly Coins = new Coins();
-    public static readonly CreditCard = new CreditCard();
-    public static readonly FileOutput = new FileOutput();
-    public static readonly History = new History();
-    public static readonly Settings = new Settings();
-    public static readonly Vault = new Vault();
+    public static readonly Coins = Coins;
+    public static readonly CreditCard = CreditCard;
+    public static readonly FileOutput = FileOutput;
+    public static readonly History = History;
+    public static readonly Settings = Settings;
+    public static readonly Vault = Vault;
 }
