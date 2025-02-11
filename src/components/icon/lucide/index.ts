@@ -5,6 +5,7 @@ import FileOutput from "./FileOutput.ts";
 import History from "./History.ts";
 import Settings from "./Settings.ts";
 import Vault from "./Vault.ts";
+import X from "./X.ts";
 
 export default class Lucide {
     private constructor() {
@@ -17,4 +18,5 @@ export default class Lucide {
     public static readonly History = History;
     public static readonly Settings = Settings;
     public static readonly Vault = Vault;
+    public static readonly X = X;
 }

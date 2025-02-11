@@ -13,7 +13,7 @@ export default class Login extends Page {
                   <a class="block rounded-full text-xl/none font-bold tracking-tight text-white outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-4" href="/"> BankAccounts </a>
                 </div>
                 <div>
-                  <a href="/">&times;</a>
+                  <a class="text-neutral-400 hover:text-neutral-100 block p-2 rounded-full transition-colors outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="/">${new Lucide.X().class("size-6")}</a>
                 </div>
               </div>
             </header>
