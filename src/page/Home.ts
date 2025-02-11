@@ -69,7 +69,7 @@ export default class Home extends Page {
               <section id="features">
                 <div class="mx-auto max-w-7xl px-2 pt-16 pb-8 sm:px-6 sm:pt-24 lg:px-8 lg:pt-32">
                   <h2 class="text-base/7 font-semibold text-green-400">Features</h2>
-                  <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white">
+                  <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-100">
                     All you need for seamless financial management
                   </p>
                   <dl class="mt-10 grid grid-cols-3 gap-8 text-base/7 text-neutral-300 lg:max-w-none">
@@ -136,7 +136,7 @@ export default class Home extends Page {
                       ${Brand.SpigotMC.class("size-6").set("ariaHidden", "true")}
                     </a>
                   </div>
-                  <p class="mt-10 text-center text-xs leading-5 text-neutral-400">Copyright © 2025 Cloudnode OÜ. All rights reserved. The BankAccounts plugin is licensed under the <a class="font-semibold hover:text-white outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0</a>.</p>
+                  <p class="mt-10 text-center text-xs leading-5 text-neutral-400">Copyright © 2025 Cloudnode OÜ. All rights reserved. The BankAccounts plugin is licensed under the <a class="font-semibold hover:text-neutral-100 outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0</a>.</p>
                   <p class="text-center text-xs leading-5 text-neutral-400">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
                 </div>
               </footer>
@@ -148,7 +148,7 @@ export default class Home extends Page {
         return new Component("div")
             .class("relative", "pl-9")
             .html`
-          <dt class="inline font-semibold text-white">
+          <dt class="inline font-semibold text-neutral-100">
             ${icon.class("absolute", "top-1", "left-1", "size-5", "text-green-500").set("ariaHidden", "true")}
             ${title}
           </dt>
@@ -160,7 +160,7 @@ export default class Home extends Page {
     private footerLink(name: string, link: string) {
         return new Component<HTMLAnchorElement>("a")
             .set("href", link)
-            .class("text-sm", "leading-6", "text-neutral-300", "rounded-full", "hover:text-white", "outline-green-400", "focus-visible:outline-2", "focus-visible:outline-offset-4")
+            .class("text-sm", "leading-6", "text-neutral-300", "rounded-full", "hover:text-neutral-100", "outline-green-400", "focus-visible:outline-2", "focus-visible:outline-offset-4")
             .text(name)
             .context(a => {
                 if (new URL(link, location.href).origin !== location.origin)
