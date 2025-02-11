@@ -1,8 +1,8 @@
-import {DocumentComponent} from "@cldn/components";
+import {Component} from "@cldn/components";
 
-export abstract class Page extends DocumentComponent {
+export abstract class Page extends Component<HTMLDivElement> {
     protected constructor(public readonly title: string) {
-        super();
+        super("div");
     }
 
     public abstract match(url: URL): boolean;
