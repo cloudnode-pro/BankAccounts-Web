@@ -31,7 +31,7 @@ export default class Login extends Page {
                             prompt.class("hidden");
                             prompt.text("Click to copy.");
                             const copied = new Component("div")
-                                .class("mt-2", "flex", "items-center", "gap-2", "text-green-500")
+                                .class("mt-2", "flex", "items-center", "gap-2", "text-green-500", "opacity-0", "transition-opacity", "duration-300")
                                 .append(new Lucide.CircleCheck()
                                         .class("size-4")
                                 )
@@ -40,10 +40,11 @@ export default class Login extends Page {
                                         .text("Copied!")
                                 );
                             btn.node.after(copied.node);
+                            setTimeout(() => copied.class("opacity-100"), 10);
                             setTimeout(() => {
                                 copied.remove();
                                 prompt.removeClass("hidden")
-                            }, 2000)
+                            }, 5000)
                         })} 
                 <p class="mt-2 text-sm/6 text-neutral-500">Click to copy.</p>
               </div>
