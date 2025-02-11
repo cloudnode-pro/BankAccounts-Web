@@ -1,4 +1,5 @@
 import Home from "./page/Home.ts";
+import Login from "./page/Login.ts";
 import NotFound from "./page/NotFound.ts";
 import {Component} from "@cldn/components";
 
@@ -6,6 +7,7 @@ const body = new Component<HTMLElement>(document.body);
 
 const pages = [
     new Home(),
+    new Login(),
     new NotFound(),
 ];
 

@@ -1,3 +1,4 @@
+import Check from "./Check.ts";
 import Coins from "./Coins.ts";
 import CreditCard from "./CreditCard.ts";
 import FileOutput from "./FileOutput.ts";
@@ -9,6 +10,7 @@ export default class Lucide {
     private constructor() {
     }
 
+    public static readonly CircleCheck = Check;
     public static readonly Coins = Coins;
     public static readonly CreditCard = CreditCard;
     public static readonly FileOutput = FileOutput;
