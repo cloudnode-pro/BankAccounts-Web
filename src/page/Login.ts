@@ -1,5 +1,6 @@
 import {Component} from "@cldn/components";
 import Lucide from "../components/icon/lucide";
+import SecurityError from "../SecurityError.ts";
 import {Page} from "./Page.ts";
 
 export default class Login extends Page {
@@ -81,8 +82,8 @@ export default class Login extends Page {
             .append(this.header);
 
         const returnUrl = new URL(this.url().searchParams.get("return") ?? "/", this.url());
-        if (returnUrl.protocol !== "https:" && returnUrl.protocol !== this.url().protocol) throw new Error(
-            `Disallowed return URL protocol ${returnUrl.protocol} in ${returnUrl.toString()}`);
+        if (returnUrl.protocol !== "https:" && returnUrl.protocol !== this.url().protocol)
+            throw new SecurityError(`Disallowed return URL protocol ${returnUrl.protocol} in ${returnUrl.toString()}`);
         this.cancel.set("href", returnUrl.toString());
 
         const token = this.url().searchParams.get("token");
