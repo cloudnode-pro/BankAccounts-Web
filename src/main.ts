@@ -3,6 +3,7 @@ import Home from "./page/Home.ts";
 import Login from "./page/Login.ts";
 import NotFound from "./page/NotFound.ts";
 import {Page} from "./page/Page.ts";
+import SecurityError from "./SecurityError.ts";
 
 async function render(pages: Page[]) {
     const body = new Component<HTMLElement>(document.body);
@@ -21,8 +22,7 @@ async function render(pages: Page[]) {
 
     document.addEventListener("click", async e => {
         const link: HTMLAnchorElement | null = e.target instanceof Element ? e.target.closest("a") : null;
-        if (link === null || new URL(link.href).origin !== location.origin || !["", "_self"].includes(
-            link.target) || e.ctrlKey) return;
+        if (link === null || new URL(link.href).origin !== location.origin || link.target !== "" || e.ctrlKey) return;
         e.preventDefault();
         history.pushState(null, "", link.href);
         await render(pages);
@@ -33,8 +33,14 @@ async function render(pages: Page[]) {
     await render(pages);
 })().catch(e => {
     console.error("Uncaught", e);
-    document.body.innerHTML = `<div class="p-6">
+    const body = new Component<HTMLElement>(document.body);
+    if (e instanceof SecurityError) {
+        body.empty().append(e.screen());
+        return;
+    }
+    body.empty().append(new Component("div")
+        .class("p-6").html`
       <p class="text-xl font-medium">An unexpected error occurred.</p>
       <pre class="text-xs mt-6">${e instanceof Error ? e.toString() + "\n" + e.stack : e}</pre>
-    </div>`;
+    `);
 });

@@ -6,9 +6,11 @@ import {Page} from "./Page.ts";
 export default class Login extends Page {
     private readonly main = new Component("main")
         .class("flex", "min-h-screen", "flex-col", "bg-neutral-950");
+
     private readonly cancel = Component.from<HTMLAnchorElement>(
         `<a class="text-neutral-400 hover:text-neutral-100 block p-2 rounded-full transition-colors outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="/">${new Lucide.X().class(
             "size-6")}</a>`);
+
     private readonly header = Component.from(`<header class="bg-neutral-950 border-b border-neutral-800">
       <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
         <div class="flex">
@@ -17,11 +19,8 @@ export default class Login extends Page {
         <div><slot name="cancel"></slot></div>
       </div>
     </header>`);
-    private readonly mainScreen = Component.from(`<div class="flex grow items-center justify-center bg-neutral-950">
-      <div class="w-lg rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5">
-        <h1 class="text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Welcome back!</h1>
-        <p class="mt-10 font-medium text-neutral-400">To access your bank accounts, join a Minecraft server and run the following command.</p>
-        ${new Component<HTMLButtonElement>("button")
+
+    private readonly copy = new Component<HTMLButtonElement>("button")
         .set("id", "copy")
         .class("mt-10", "flex", "w-full", "cursor-pointer", "rounded-md", "bg-white/5", "px-3", "py-1.5", "text-white",
             "ring-1", "shadow-sm", "ring-white/10", "transition-colors", "ring-inset", "select-text",
@@ -48,10 +47,17 @@ export default class Login extends Page {
                 copied.remove();
                 prompt.removeClass("hidden");
             }, 5000);
-        })}
+        });
+
+    private readonly mainScreen = Component.from(`<div class="flex grow items-center justify-center bg-neutral-950">
+      <div class="w-lg rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5">
+        <h1 class="text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Welcome back!</h1>
+        <p class="mt-10 font-medium text-neutral-400">To access your bank accounts, join a Minecraft server and run the following command.</p>
+        <slot name="copy"></slot>
         <label for="copy" class="block mt-2 text-sm/6 text-neutral-500">Click to copy.</label>
       </div>
     </div>`);
+
     private readonly authLoadingScreen = Component.from(`<div class="flex grow items-center justify-center bg-neutral-950">
       <div class="w-lg rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5 flex flex-col items-center">
         <p class="text-2xl/9 font-semibold tracking-tight text-neutral-100">Authenticating with server…</p>
@@ -62,6 +68,7 @@ export default class Login extends Page {
 
     public constructor() {
         super("BankAccounts - Sign in");
+        this.copy.slot("copy", this.mainScreen.node);
         this
             .append(this.main).html`
           <footer class="py-6 bg-neutral-950 border-t border-neutral-800">
@@ -83,7 +90,7 @@ export default class Login extends Page {
 
         const returnUrl = new URL(this.url().searchParams.get("return") ?? "/", this.url());
         if (returnUrl.protocol !== "https:" && returnUrl.protocol !== this.url().protocol)
-            throw new SecurityError(`Disallowed return URL protocol ${returnUrl.protocol} in ${returnUrl.toString()}`);
+            throw new SecurityError(`The return URL has a disallowed protocol ‘${returnUrl.protocol.slice(0, -1)}’.`);
         this.cancel.set("href", returnUrl.toString());
 
         const token = this.url().searchParams.get("token");
