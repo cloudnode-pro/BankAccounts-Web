@@ -18,7 +18,7 @@ export default class Login extends Page {
       </div>
     </header>`);
     private readonly mainScreen = Component.from(`<div class="flex grow items-center justify-center bg-neutral-950">
-      <div class="w-xl rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5">
+      <div class="w-lg rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5">
         <h1 class="text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Welcome back!</h1>
         <p class="mt-10 font-medium text-neutral-400">To access your bank accounts, join a Minecraft server and run the following command.</p>
         ${new Component<HTMLButtonElement>("button")
@@ -53,7 +53,7 @@ export default class Login extends Page {
       </div>
     </div>`);
     private readonly authLoadingScreen = Component.from(`<div class="flex grow items-center justify-center bg-neutral-950">
-      <div class="w-xl rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5 flex flex-col items-center">
+      <div class="w-lg rounded-xl bg-neutral-900 p-10 ring-1 ring-inset ring-white/5 flex flex-col items-center">
         <p class="text-2xl/9 font-semibold tracking-tight text-neutral-100">Authenticating with server…</p>
         <p class="mt-4 font-medium text-neutral-400">Please wait while we authenticate your request.</p>
         <div class="mt-10 size-12 rounded-full border-2 border-neutral-700 border-r-green-500 animate-spin"></div>
