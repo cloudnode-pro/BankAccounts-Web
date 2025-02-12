@@ -16,7 +16,7 @@ async function render(pages: Page[]) {
     if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView(); else window.scrollTo(0, 0);
 }
 
-try {
+(async () => {
     const pages = [new Home(), new Login(), new NotFound()];
 
     document.addEventListener("click", async e => {
@@ -30,11 +30,11 @@ try {
 
     window.addEventListener("popstate", () => render(pages));
 
-    render(pages).then();
-}
-catch (e) {
+    await render(pages);
+})().catch(e => {
     console.error("Uncaught", e);
-    document.body.innerHTML = `<div class="p-6"><p class="text-xl font-medium">An unexpected error occurred.</p><pre class="text-xs mt-6">${e instanceof Error
-        ? e.toString() + "\n" + e.stack
-        : e}</pre></div>`;
-}
+    document.body.innerHTML = `<div class="p-6">
+      <p class="text-xl font-medium">An unexpected error occurred.</p>
+      <pre class="text-xs mt-6">${e instanceof Error ? e.toString() + "\n" + e.stack : e}</pre>
+    </div>`;
+});
