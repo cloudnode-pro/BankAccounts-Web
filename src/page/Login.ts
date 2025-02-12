@@ -18,7 +18,7 @@ export default class Login extends Page {
 
     private readonly cancel = Component.from<HTMLAnchorElement>(`<a class="text-neutral-400 hover:text-neutral-100 block p-2 rounded-full transition-colors outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-2" href="/">${new Lucide.X().class("size-6")}</a>`);
 
-    private readonly header = Component.from(`<header class="bg-neutral-950">
+    private readonly header = Component.from(`<header class="bg-neutral-950 border-b border-neutral-800">
       <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
         <div class="flex">
           <a class="block rounded-full text-xl/none font-bold tracking-tight text-white outline-green-400 focus-visible:outline-2 focus-visible:outline-offset-4" href="/">BankAccounts</a>
