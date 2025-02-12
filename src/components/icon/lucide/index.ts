@@ -8,9 +8,6 @@ import Vault from "./Vault.ts";
 import X from "./X.ts";
 
 export default class Lucide {
-    private constructor() {
-    }
-
     public static readonly CircleCheck = Check;
     public static readonly Coins = Coins;
     public static readonly CreditCard = CreditCard;
@@ -19,4 +16,7 @@ export default class Lucide {
     public static readonly Settings = Settings;
     public static readonly Vault = Vault;
     public static readonly X = X;
+
+    private constructor() {
+    }
 }
