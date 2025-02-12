@@ -2,18 +2,14 @@ import Home from "./page/Home.ts";
 import Login from "./page/Login.ts";
 import NotFound from "./page/NotFound.ts";
 import {Component} from "@cldn/components";
+import {Page} from "./page/Page.ts";
 
-const body = new Component<HTMLElement>(document.body);
-
-const pages = [
-    new Home(),
-    new Login(),
-    new NotFound(),
-];
-
-async function render() {
+async function render(pages: Page[]) {
+    const body = new Component<HTMLElement>(document.body);
     const url = new URL(window.location.href);
     const page = pages.find(page => page.match(url));
+    if (page === undefined)
+        throw new Error(`No page found for ${url.toString()}`);
     document.title = page.title;
     body.empty();
     body.append(page);
@@ -23,19 +19,31 @@ async function render() {
     else window.scrollTo(0, 0);
 }
 
-render().then();
+try {
+    const pages = [
+        new Home(),
+        new Login(),
+        new NotFound(),
+    ];
 
-document.addEventListener("click", e => {
-    const link = e.target instanceof Element ? e.target.closest("a") : null;
-    if (
-        link === null
-        || new URL(link.href).origin !== location.origin
-        || !["", "_self"].includes(link.target)
-        || e.ctrlKey
-    ) return;
-    e.preventDefault();
-    history.pushState(null, "", link.href);
-    render().then();
-});
+    document.addEventListener("click", async e => {
+        const link: HTMLAnchorElement | null = e.target instanceof Element ? e.target.closest("a") : null;
+        if (
+            link === null
+            || new URL(link.href).origin !== location.origin
+            || !["", "_self"].includes(link.target)
+            || e.ctrlKey
+        ) return;
+        e.preventDefault();
+        history.pushState(null, "", link.href);
+        await render(pages);
+    });
 
-window.addEventListener("popstate", () => render());
+    window.addEventListener("popstate", () => render(pages));
+
+    render(pages).then();
+}
+catch (e) {
+    console.error("Uncaught", e);
+    document.body.innerHTML = `<div class="p-6"><p class="text-xl font-medium">An unexpected error occurred.</p><pre class="text-xs mt-6">${e instanceof Error ? e.toString() + "\n" + e.stack : e}</pre></div>`;
+}
