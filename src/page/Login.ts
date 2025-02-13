@@ -36,7 +36,7 @@ export default class Login extends Page {
             const copied = new Component("div")
                 .class("mt-2", "flex", "items-center", "gap-2", "text-green-500", "opacity-0", "transition-opacity",
                     "duration-300")
-                .append(new Lucide.CircleCheck()
+                .append(new Lucide.Check()
                     .class("size-4"))
                 .append(new Component("span")
                     .class("text-sm/6")
